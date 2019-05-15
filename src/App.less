@@ -1,0 +1,52 @@
+@import '~antd/dist/antd.less'; // Import Ant Design styles by less entry
+@import './theme.less'; // variables to override above
+
+@import url('https://rsms.me/inter/inter.css');
+
+@gray-10: #f5f7fa;
+@gray-30: #dee3ed;
+
+.App {
+  padding: @padding-lg;
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Sheet {
+  max-width: 560px;
+  border: 1px solid @gray-30;
+  box-shadow: @box-shadow-base;
+  border-radius: @border-radius-base * 2;
+  overflow: hidden;
+
+  .Sheet__Header {
+    border-bottom: 1px solid @gray-30;
+  }
+
+  .Sheet__Content {
+    padding: @padding-lg;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ant-input.ant-input {
+  background: @gray-10;
+}
+
+.ant-modal-footer.ant-modal-footer {
+  border: none;
+  padding: @padding-lg;
+}
