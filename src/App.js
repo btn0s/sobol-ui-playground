@@ -83,7 +83,7 @@ const SheetHeader = ({ children }) => (
 );
 const SheetContent = ({ children }) => <div className="Sheet__Content">{children}</div>;
 
-class ModalWrapper extends React.Component {
+class ModalButton extends React.Component {
   state = { visible: false };
 
   showModal = () => {
@@ -109,8 +109,8 @@ class ModalWrapper extends React.Component {
   render() {
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>
-          Open Modal
+        <Button {...this.props} onClick={this.showModal}>
+          {this.props.children}
         </Button>
         <Modal
           title="Basic Modal"
@@ -165,41 +165,36 @@ function App() {
                 <Table dataSource={dataSource} columns={columns} />
               </Row>
             </TabPane>
+            <TabPane tab="Etc" key="3">
+              <ModalButton>Open Modal</ModalButton>
+              <Card
+                hoverable
+                size="small"
+                title="Small size card"
+                extra={<a href="#">More</a>}
+                style={{ width: 300 }}
+              >
+                <p>Card content</p>
+                <p>Card content</p>
+                <p>Card content</p>
+              </Card>
+              <Button type="primary">
+                <Icon type="Target" />
+                Add Goal
+              </Button>
+              <Button>Default</Button>
+              <Button type="danger">Danger</Button>
+
+              <div>
+                <Alert message="Success Text" type="success" />
+                <Alert message="Info Text" type="info" />
+                <Alert message="Warning Text" type="warning" />
+                <Alert message="Error Text" type="error" />
+              </div>
+            </TabPane>
           </Tabs>
         </SheetContent>
       </Sheet>
-      <header className="App-header">
-        <ModalWrapper />
-        <Dropdown overlay={menu}>
-          <a className="ant-dropdown-link" href="#">
-            Hover me <Icon type="ChevronDown" />
-          </a>
-        </Dropdown>
-        <Card
-          hoverable
-          size="small"
-          title="Small size card"
-          extra={<a href="#">More</a>}
-          style={{ width: 300 }}
-        >
-          <p>Card content</p>
-          <p>Card content</p>
-          <p>Card content</p>
-        </Card>
-        <Button type="primary">
-          <Icon type="Target" />
-          Add Goal
-        </Button>
-        <Button>Default</Button>
-        <Button type="danger">Danger</Button>
-
-        <div>
-          <Alert message="Success Text" type="success" />
-          <Alert message="Info Text" type="info" />
-          <Alert message="Warning Text" type="warning" />
-          <Alert message="Error Text" type="error" />
-        </div>
-      </header>
     </div>
   );
 }
