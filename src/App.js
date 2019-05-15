@@ -78,12 +78,6 @@ const SheetHeader = ({ children }) => (
           <Icon type="X" />
         </Button>,
       ]}
-      footer={
-        <Tabs defaultActiveKey="1">
-          <TabPane tab="Details" key="1" />
-          <TabPane tab="Rule" key="2" />
-        </Tabs>
-      }
     />
   </div>
 );
@@ -139,32 +133,39 @@ function App() {
       <Sheet>
         <SheetHeader />
         <SheetContent>
-          <Row type="flex" gutter={8} justify="space-between" className="sheet__actions">
-            <Col>
-              <Row type="flex" gutter={8}>
+          <Tabs defaultActiveKey="1">
+            <TabPane tab="Goals" key="1">
+              <Row type="flex" gutter={8} justify="space-between" className="sheet__actions">
                 <Col>
-                  <Button type="primary" icon={<Icon type="Target" />}>
-                    Add Goal
-                  </Button>
+                  <Row type="flex" gutter={8}>
+                    <Col>
+                      <Button type="primary">
+                        <Icon type="Target" />
+                        Add Goal
+                      </Button>
+                    </Col>
+                    <Col>
+                      <Button>
+                        <Icon type="Layout" />
+                        Add Section
+                      </Button>
+                    </Col>
+                  </Row>
                 </Col>
                 <Col>
-                  <Button>
-                    <Icon type="Layout" />
-                    Add Section
-                  </Button>
+                  <Input
+                    prefix={<Icon type="Search" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    placeholder="Search and filter"
+                  />
                 </Col>
               </Row>
-            </Col>
-            <Col>
-              <Input
-                prefix={<Icon type="Search" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="Search and filter"
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Table dataSource={dataSource} columns={columns} />
-          </Row>
+            </TabPane>
+            <TabPane tab="Rule" key="2">
+              <Row>
+                <Table dataSource={dataSource} columns={columns} />
+              </Row>
+            </TabPane>
+          </Tabs>
         </SheetContent>
       </Sheet>
       <header className="App-header">

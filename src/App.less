@@ -25,11 +25,19 @@
   overflow: hidden;
 
   .Sheet__Header {
-    border-bottom: 1px solid @gray-30;
   }
 
   .Sheet__Content {
-    padding: @padding-lg;
+    @sheet-padding: @padding-lg;
+
+    .ant-tabs-bar.ant-tabs-bar {
+      margin: 0;
+      padding: 0 @sheet-padding;
+    }
+
+    .ant-tabs-content.ant-tabs-content {
+      padding: @sheet-padding;
+    }
   }
 }
 
